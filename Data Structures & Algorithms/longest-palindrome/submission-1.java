@@ -1,0 +1,15 @@
+public class Solution {
+    public int longestPalindrome(String s) {
+        Map<Character, Integer> count = new HashMap<>();
+        int res = 0;
+
+        for (char c : s.toCharArray()) {
+            count.put(c, count.getOrDefault(c, 0) + 1);
+            if (count.get(c) % 2 == 0) {
+                res += 2;
+            }
+        }
+
+        return res + (res < s.length() ? 1 : 0);
+    }
+}
